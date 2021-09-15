@@ -12,5 +12,6 @@ public class CarpetCalculator {
         RoomCarpet rc = new RoomCarpet(roomDim, CARPET_COST);
         System.out.println(rc.getTotalCost());
         
+        
     }
 }

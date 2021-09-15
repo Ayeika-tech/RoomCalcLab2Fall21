@@ -38,6 +38,19 @@ public class RoomDimension implements Comparable<RoomDimension> {
     }
    
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(_length);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(_width);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+
     // Create toString method that contains RoomDimension's information
     public String toString() {
         String str = "Length: " + _length 
@@ -70,12 +83,12 @@ public class RoomDimension implements Comparable<RoomDimension> {
    // creating a compareTo method to compare the lenghts for both objects
     public int compareTo(RoomDimension ob2) {
         int result = 0;
-        if (_length == ob2._length) 
-        result = 0;
-        else if (_length > ob2._length)
-        result = -1;
+        if ((_length == ob2._length)  && (_width == ob2._width))
+        {result = 0;}
+        else if ((_length > ob2._length) && (_width > ob2._width))
+        {result = -1;}
         else 
-        result = 1;
+        {result = 1;}
 
         return result;
     }

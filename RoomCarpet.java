@@ -24,6 +24,19 @@ public class RoomCarpet implements Comparable<RoomCarpet> {
     return totalCost;
   }
 
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    long temp;
+    temp = Double.doubleToLongBits(carpetCostSqft);
+    result = prime * result + (int) (temp ^ (temp >>> 32));
+    result = prime * result + ((roomDimObj == null) ? 0 : roomDimObj.hashCode());
+    return result;
+  }
+
+  
+
   // Create an equals method to compare objects, use '==' for primative values.
   public boolean equals(RoomCarpet object2) {
     boolean status;
@@ -32,6 +45,7 @@ public class RoomCarpet implements Comparable<RoomCarpet> {
     else
       status = false;
     return status;
+    
   }
 
   // clone method
