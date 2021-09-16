@@ -25,20 +25,28 @@ public class CarpetCalculator {
       roomCarpet.add(1, rc1);
       roomCarpet.add(2, rc2);
 
-      //testing all methods for RoomCarpet class
+      //testing all methods in a for loop to save time on coding
       for (int i = 0; i < roomCarpet.size(); i++) {
-        System.out.println("*******Testing element #"+i+"******" );
-        System.out.println("Testing toString: \n" +roomCarpet.get(i).toString());
+        System.out.println("        *******Testing element # "+i+" ******" );
+        System.out.println("Testing RoomCarpet's toString: \n" +roomCarpet.get(i).toString());
+        System.out.println("   Testing RoomCarpet's clone: \n"+ roomCarpet.get(i).clone());
         System.out.println("Testing equal: " + roomCarpet.get(i).equals(rc2));
         System.out.println("Testing compareTo: "+ roomCarpet.get(i).compareTo(rc2));
-        System.out.println("Testing clone:\n "+ roomCarpet.get(i).clone());
         System.out.println("Testing Hashcode: "+ roomCarpet.get(i).hashCode());
-        System.out.println("Testing getArea from RoomDimension: "+ roomdim.get(i).getArea());
         System.out.println("Testing getTotalCost from RoomCarpet: "+ String.format("%.2f",roomCarpet.get(i).getTotalCost()));
-        
-        
+        System.out.println();
+        System.out.println("Testing RoomDimension's toString: \n" +roomdim.get(i).toString());
+        System.out.println("   Testing RoomDimension's clone: \n"+ roomdim.get(i).clone());
+        System.out.println("Testing equal: " + roomdim.get(i).equals(roomdim.get(i)));
+        System.out.println("Testing compareTo: "+ roomdim.get(i).compareTo(roomdim.get(i)));
+        System.out.println("Testing Hashcode: "+ roomdim.get(i).hashCode());
+        System.out.println("Testing RoomDimension's toString: \n" +roomdim.get(i).toString());
+        System.out.println("Testing getArea from RoomDimension: "+ roomdim.get(i).getArea());
+        System.out.println("------------------------------------------------------");
       }
-      
+      //testing finalized method
+      System.gc();
     }
     
+
 }

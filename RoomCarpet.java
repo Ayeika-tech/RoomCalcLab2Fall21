@@ -25,23 +25,22 @@ public class RoomCarpet implements Comparable<RoomCarpet> {
     return totalCost;
   }
 
-  @Override
+ 
+  // had a hard time doing this hascode and finally got it to work :)
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    long temp;
-    temp = Double.doubleToLongBits(carpetCostSqft);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    result = prime * result + ((roomDimObj == null) ? 0 : roomDimObj.hashCode());
+    
+    int result = 17;
+   long cc = Double.doubleToLongBits(carpetCostSqft);
+    result = 37 * result + (int) (cc);
+    result = 37 * result + (int)roomDimObj.hashCode();
     return result;
   }
-
   
 
   // Create an equals method to compare objects, use '==' for primative values.
   public boolean equals(RoomCarpet object2) {
     boolean status;
-    if (roomDimObj.equals(object2.roomDimObj) && carpetCostSqft == (object2.carpetCostSqft))
+    if (this == object2 && carpetCostSqft == (object2.carpetCostSqft))
       status = true;
     else
       status = false;
@@ -56,7 +55,7 @@ public class RoomCarpet implements Comparable<RoomCarpet> {
 
   // In order to test the finalize method you need to invoke the garbage
   // collection method
-  // System.gc();
+  
   public void finalize() {
     System.out.println("Room Carpet Object has been destroyed");
   }
@@ -64,7 +63,7 @@ public class RoomCarpet implements Comparable<RoomCarpet> {
   // toString method to display object's data
   public String toString() {
     String str ="Carpet's Area: " + roomDimObj.getArea()+"ft"
-               +"\nCost per Sqft: $" + carpetCostSqft;
+             +"\nCost per Sqft: $" + carpetCostSqft;
 
     return str;
   }

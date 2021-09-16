@@ -36,25 +36,20 @@ public class RoomDimension implements Comparable<RoomDimension> {
         double area = _length * _width;
         return area;
     }
-   
-
-    @Override
+   // converting double into long and then using it to get a more unique code
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        long temp;
-        temp = Double.doubleToLongBits(_length);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(_width);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
+        int result = 17;
+        long LdoubToLong,WdoubToLong;
+        LdoubToLong = Double.doubleToLongBits(_length);
+        result = 37 * result + (int)(LdoubToLong);
+        WdoubToLong = Double.doubleToLongBits(_width);
+        result = 37 * result + (int) (WdoubToLong);
         return result;
-    }
-
-
+}
     // Create toString method that contains RoomDimension's information
     public String toString() {
-        String str = "Length: " + _length 
-                + "\nWidth: " + _width;
+        String str = "Length: " + _length+"ft" 
+                + "\nWidth: " + _width+"ft";
         return str;
     }
 
