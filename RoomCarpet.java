@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class RoomCarpet implements Comparable<RoomCarpet> {
 
@@ -62,7 +63,7 @@ public class RoomCarpet implements Comparable<RoomCarpet> {
 
   // toString method to display object's data
   public String toString() {
-    String str = "Carpet Surface Area: " + roomDimObj.getArea()+" ft"
+    String str ="Carpet's Area: " + roomDimObj.getArea()+"ft"
                +"\nCost per Sqft: $" + carpetCostSqft;
 
     return str;
@@ -82,5 +83,7 @@ public class RoomCarpet implements Comparable<RoomCarpet> {
 
     return result;
   }
+  
+  
 
 }
